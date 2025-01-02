@@ -104,7 +104,8 @@ mainArr.map(item => {
 
         function drawFlakes() {
             ctx.clearRect(0, 0, w, h);
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "blue";
+            // ctx.fillStyle = "white";
             ctx.beginPath();
             for (i = 0; i < mf; i++) {
                 let f = flakes[i];
@@ -383,12 +384,15 @@ window.onscroll = function () {
                 let pluginRunSpeed = item.dataset.speed
                 if (pluginName === "counterup") {
                     let counterNumber = item.innerHTML
-                    let countstartPoint = 0
+                    let countstartPoint = 100
+                    // let countstartPoint = 0
 
                     function countRunner() {
 
-                        item.innerHTML = countstartPoint++
-                        if (countstartPoint > Number(counterNumber)) {
+                        item.innerHTML = countstartPoint--
+                        // item.innerHTML = countstartPoint++
+                        if (countstartPoint < Number(counterNumber)) {
+                        // if (countstartPoint > Number(counterNumber)) {
                             clearInterval(stop)
                         }
                     }
@@ -396,10 +400,12 @@ window.onscroll = function () {
                         countRunner()
                     }, pluginRunSpeed)
                 } else if (pluginName === "progressbar") {
-                    let barStartPoint = 0
+                    let barStartPoint = 100
+                    // let barStartPoint = 0
 
                     function progressbar() {
-                        barStartPoint = barStartPoint + .1
+                        barStartPoint = barStartPoint - .1
+                        // barStartPoint = barStartPoint + .1
                         if (pluginPercentMove == "true") {
                             item.style.position = 'relative'
                             item.innerHTML = `<div class="percentages" style="position:absolute;right:0;top:0;">${parseInt(barStartPoint)}</div>`
@@ -410,7 +416,8 @@ window.onscroll = function () {
                         item.style.width = `${barStartPoint}%`
                         item.style.height = `${progressBarPluginHeight}`
                         item.style.background = `${progressBarPluginBg}`
-                        if (barStartPoint > progressBarPluginPercent) {
+                        if (barStartPoint < progressBarPluginPercent) {
+                        // if (barStartPoint > progressBarPluginPercent) {
                             clearInterval(stop)
                         }
                     }
