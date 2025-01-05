@@ -328,7 +328,8 @@ window.onload = function () {
                         barStartPoint = barStartPoint + .1
                         if (pluginPercentMove === "true") {
                             item.style.position = 'relative'
-                            item.innerHTML = `<div class="percentages" style="position:absolute;right:0;top:0;">${parseInt(barStartPoint)}%</div>`
+                            item.innerHTML = `<div class="percentages" style="position:absolute;left:0;top:0;">${parseInt(barStartPoint)}%</div>`
+                            // item.innerHTML = `<div class="percentages" style="position:absolute;right:0;top:0;">${parseInt(barStartPoint)}%</div>`
                         } else {
                             item.innerHTML = `<div class="percentages">${parseInt(barStartPoint)}%</div>`
                         }
